@@ -1,0 +1,94 @@
+<!-- $Id: goods_info.htm 17126 2010-04-23 10:30:26Z liuhui $ -->
+
+
+
+
+
+
+
+<!-- start goods form -->
+<div class="tab-div">
+    <!-- tab bar -->
+
+    
+
+        <!-- 商品相册 -->
+        <table width="90%" id="gallery-table"  align="center">
+          <!-- 图片列表 -->
+          
+          <tr><td>&nbsp;</td></tr>
+          <!-- 上传图片 -->
+          <tr>
+            <td>
+              <a href="javascript:;" onclick="addImg(this)">[+]</a>
+
+              ͼƬ�ϴ� <input type="file" name="img_url[]" />
+            </td>
+          </tr>
+        </table>
+
+
+<script language="JavaScript">
+var Browser = new Object();
+function rowindex(tr)
+{
+  if (Browser.isIE)
+  {
+    return tr.rowIndex;
+  }
+  else
+  {
+    table = tr.parentNode.parentNode;
+    for (i = 0; i < table.rows.length; i ++ )
+    {
+      if (table.rows[i] == tr)
+      {
+        return i;
+      }
+    }
+  }
+}
+  
+  function addImg(obj)
+  {
+      var src  = obj.parentNode.parentNode;
+      var idx  = rowindex(src);
+      var tbl  = document.getElementById('gallery-table');
+      var row  = tbl.insertRow(idx + 1);
+      var cell = row.insertCell(-1);
+      cell.innerHTML = src.cells[0].innerHTML.replace(/(.*)(addImg)(.*)(\[)(\+)/i, "$1removeImg$3$4-");
+  }
+
+  /**
+   * 删除图片上传
+   */
+  function removeImg(obj)
+  {
+      var row = rowindex(obj.parentNode.parentNode);
+      var tbl = document.getElementById('gallery-table');
+
+      tbl.deleteRow(row);
+  }
+
+  /**
+   * 删除图片
+   */
+  function dropImg(imgId)
+  {
+    Ajax.call('goods.php?is_ajax=1&act=drop_image', "img_id="+imgId, dropImgResponse, "GET", "JSON");
+  }
+
+  function dropImgResponse(result)
+  {
+      if (result.error == 0)
+      {
+          document.getElementById('gallery_' + result.content).style.display = 'none';
+      }
+  }
+
+  /**
+   * 将市场价格取�
+   */
+
+</script>
+

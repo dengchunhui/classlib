@@ -1,0 +1,49 @@
+﻿<html>
+<meta charset="utf-8" />
+<script type="text/javascript" src="jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="chart/highcharts.js"></script>
+<script type="text/javascript" src="chart/exporting.js"></script>
+<script type="text/javascript" src="chart/chart.js"></script>
+<script>
+//x轴数值名，必填，类型为字符串数组
+var xAxis_pot = <?php echo $xAxis_pot;?>;
+
+//y轴名，必填，类型为字符串
+var yAxis_title = <?php echo $yAxis_title;?>;
+
+//传入的数据名数组，必填，数据名类型为字符串
+var data_name = <?php echo $data_name;?>;
+
+//传入的数据数组，必填，类型为数组
+var data_array = <?php echo $data_array;?>;
+
+//单位名，必填，鼠标划过线条显示数据的单位，类型为字符串
+var unit = <?php echo $unit;?>;
+
+//饼图里的单位数据
+var series_name = <?php echo $series_name;?>;
+
+//饼图的百分比数据，数据类型为[25,50,15,10]加起来要整等于100
+var pie_data_array = <?php echo $pie_data_array;?>;
+
+    $(function(){
+    var abc = $('#line_chart').highcharts(brokenline_plot(xAxis_pot,yAxis_title,data_name,data_array,unit,'充值统计'));
+    })
+
+    $(function(){
+    var abc = $('#a_chart').highcharts(column_plot(xAxis_pot,yAxis_title,data_name,data_array));
+   })
+
+    $(function(){
+    var abc = $('#b_chart').highcharts(stackcolumn_plot(xAxis_pot,yAxis_title,data_name,data_array));
+    })
+
+    $(function(){
+    var abc = $('#pie_chart').highcharts(pie_plot(series_name,data_name,pie_data_array,'客户端'));
+    })
+</script>
+<div id="line_chart" style="min-width:700px;height:400px"></div>
+<div id="a_chart" style="min-width:700px;height:400px"></div>	
+<div id="b_chart" style="min-width:700px;height:400px"></div>	
+<div id="pie_chart" style="min-width:700px;height:400px"></div>	
+</html>

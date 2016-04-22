@@ -1,0 +1,14 @@
+﻿<?php echo $str;?>
+ <script type="text/javascript">
+	var qr_url = "http://dch.dev.jxch168.com/wap/index.php?ctl=register_red&r=";
+	function shareTo(site){
+		var e = encodeURIComponent, s = screen, d = document, wd = 640, hg = 480, u = d.location;
+		d.title = '新老用户福利多多！年化收益8%-18%，全额本息担保，投资就送现金红包，快来注册吧！';
+		var uuid = '';
+		var img ="http://www.jxch168.com/public/images/logo.png";
+		var ctxt = '投越多返利越多，快来加入金享财行吧！';
+		var url = "http://api.bshare.cn/share/"+site+"?url="+e(""+qr_url+"")+"&title="+e(d.title)+"&publisherUuid="+uuid+"&summary="+ctxt+"&pic="+img;
+		window.open(url, 'bshare', ['toolbar=0,status=0,resizable=1,width='+ wd +',height='+ hg +',left='+ (s.width - wd) / 2+ ',top='+ (s.height - hg) / 2]);
+	}
+</script>
+

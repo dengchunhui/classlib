@@ -1,0 +1,15 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="calendar/calendar.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="calendar/calendar.js"></script>
+<script type="text/javascript" src="calendar/jquery.js"></script>
+</head>
+<body>
+
+<input name="start_time" type="text" id="start_time" size="22" readonly="readonly" onclick="return showCalendar('start_time', '%Y-%m-%d %H:%M', '24', false, 'selbtn1');"/>
+<input name="selbtn1" type="button" id="selbtn1" onclick="return showCalendar('start_time', '%Y-%m-%d %H:%M', '24', false, 'selbtn1');" value="选择时间" class="button"/>
+<input type="button" class="button" value="清空时间" onclick="$('#start_time').val('');" />
+</body>
+</html>
