@@ -1,0 +1,19 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <script src="jquery-1.11.3.min.js"></script>
+    <title>跨域demo</title>
+    <script type="text/javascript">
+        //跨域请求
+        //请求形式 http://xxxxxx/?callback=?
+        $.getJSON("http://localhost/test/kuayu.php?callback=?",
+            function (data) {
+                alert(data.msg);
+            });
+    </script>
+</head>
+<body>
+
+</body>
+</html>

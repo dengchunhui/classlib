@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+	<meta charset="utf-8" />
+    <script src="scripts/jquery-1.10.1.min.js"></script>
+    <script src="scripts/uploadify/jquery.uploadify.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="scripts/uploadify/uploadify.css" />
+    <script type="text/javascript">
+    $(function() {
+        $("#file_upload").uploadify({
+            "swf": "scripts/uploadify/uploadify.swf",
+            "uploader": "upload.ashx",
+            "buttonText": "请选择文件",
+            "fileTypeExts": "*.rar;*.jpg",
+            "fileSizeLimit": 10737418240,
+            "queueID": false,
+            "onUploadComplete": function (event, queueID, fileObj, response, data) {
+                alert(response);
+            },
+        });
+    });
+    </script>
+</head>
+<body>
+    <input id="file_upload" name="file_upload" type="file" multiple="true">
+</body>
+</html>
