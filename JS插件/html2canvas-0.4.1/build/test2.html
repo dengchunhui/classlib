@@ -1,0 +1,9 @@
+<span id=show></span>
+<<a href="https://www.baidu.com/s?wd=IE&tn=44039180_cpr&fenlei=mv6quAkxTZn0IZRqIHckPjm4nH00T1YvPhfkPjK-nycvPA7Bnj00IAYqnWm3PW64rj0d0AP8IA3qPjfsn1bkrjKxmLKz0ZNzUjdCIZwsrBtEXh9GuA7EQhF9pywdQhPEUiqkIyN1IA-EUBtkPW0dPj0vrHmLrH6LPjRLrH0L" target="_blank" class="baidu-highlight">IE</a>:Download ID="oDownload" <a href="https://www.baidu.com/s?wd=STYLE&tn=44039180_cpr&fenlei=mv6quAkxTZn0IZRqIHckPjm4nH00T1YvPhfkPjK-nycvPA7Bnj00IAYqnWm3PW64rj0d0AP8IA3qPjfsn1bkrjKxmLKz0ZNzUjdCIZwsrBtEXh9GuA7EQhF9pywdQhPEUiqkIyN1IA-EUBtkPW0dPj0vrHmLrH6LPjRLrH0L"target="_blank" class="baidu-highlight">STYLE</a>="behavior:url(#default#download)" />
+<script> 
+function onDownloadDone(downDate){
+showImport.innerHTML=downDate
+}
+
+documemt.getElemtByid('oDownload').startDownload('b.htm',onDownloadDone)
+</script>
