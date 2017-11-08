@@ -1,0 +1,100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>jQuery表格增加删除代码 - 源码之家</title>
+
+<script type="text/javascript" src="js/jquery1.7.js"></script>
+<script type="text/javascript">
+$(function () {
+	var show_count = 20;   //要显示的条数
+	var count = 1;    //递增的开始值，这里是你的ID
+	$("#btn_addtr").click(function () {
+
+		var length = $("#dynamicTable tbody tr").length;
+		//alert(length);
+		if (length < show_count)    //点击时候，如果当前的数字小于递增结束的条件
+		{
+			$("#tab11 tbody tr").clone().appendTo("#dynamicTable tbody");   //在表格后面添加一行
+			changeIndex();//更新行号
+		}
+	});
+
+
+});
+function changeIndex() {
+	var i = 1;
+	$("#dynamicTable tbody tr").each(function () { //循环tab tbody下的tr
+		$(this).find("input[name='NO']").val(i++);//更新行号
+	});
+}
+
+function deltr(opp) {
+	var length = $("#dynamicTable tbody tr").length;
+	//alert(length);
+	if (length <= 1) {
+		alert("至少保留一行");
+	} else {
+		$(opp).parent().parent().remove();//移除当前行
+		changeIndex();
+	}
+}
+</script>
+
+</head>
+<body>
+
+<div style="width:720px;margin:20px auto;">
+
+	<table id="tab11" style="display: none">
+		<tbody>
+			<tr>
+				<td height="30" align="center">
+					<input type="text" name="NO" size="2" value="1" /></td>
+				<td align="center">
+					<input type="text" name="start_end_time" /></td>
+				<td align="center">
+					<input type="text" name="unit_department" /></td>
+				<td align="center">
+					<input type="text" name="post" /></td>
+				<td>
+					<input type="button" id="Button1" onClick="deltr(this)" value="删行">
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<input type="button" id="btn_addtr" value="增行">
+	<table id="dynamicTable" width="700" border="0" cellspacing="0" cellpadding="0">
+		<thead>
+			<tr>
+				<td height="30" align="center" bgcolor="#CCCCCC">ID</td>
+				<td align="center" bgcolor="#CCCCCC">起止时间</td>
+				<td align="center" bgcolor="#CCCCCC">单位/部门</td>
+				<td align="center" bgcolor="#CCCCCC">职位</td>
+				<td></td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td height="30" align="center">
+					<input type="text" name="NO" size="2" value="1" /></td>
+				<td align="center">
+					<input type="text" name="start_end_time" /></td>
+				<td align="center">
+					<input type="text" name="unit_department" /></td>
+				<td align="center">
+					<input type="text" name="post" /></td>
+				<td>
+					<input type="button" id="Button2" onClick="deltr(this)" value="删行">
+				</td>
+			</tr>
+		</tbody>
+	</table>
+
+</div>
+
+<div style="text-align:center;">
+<p>来源:<a href="http://www.mycodes.net/" target="_blank">源码之家</a></p>
+</div>
+</body>
+</html>

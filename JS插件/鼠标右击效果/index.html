@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=7"/>
+<title>jQuery鼠标右键点击显示菜单</title>
+
+<script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
+<script type="text/javascript" src="js/jquery.notice.js"></script>
+
+<style type="text/css">
+.document-class {
+	width:200px;
+	border: 1px solid #CCCCCC;
+	position: absolute;
+	display: none;
+	background: #ffffff;
+	z-index: 9999;
+}
+
+.document-class ul {
+	padding: 0px;
+	margin: 0px;
+	list-style: none;
+}
+
+.document-class ul li {
+	line-height: 30px;
+	text-indent: 20px;
+}
+.document-class ul li a {
+	color: #000000;
+	text-decoration: none;
+}
+</style>
+
+</head>
+<body>
+
+<div style="text-align: center; line-height: 30px;">右击，查看效果</div>
+
+<div class="document-class">
+    <ul>
+        <li><a href="http://www.baidu.com" target="_blank">百度</a></li>
+        <li><a href="#" target="_blank">网站菜单</a></li>
+        <li><a href="http://www.mycodes.net" target="_blank">源码之家</a></li>
+    </ul>
+</div>
+
+<script type="text/javascript">
+$(function () {
+	 $.mouseMoveShow('.document-class');
+	 $.disabledContextMenu();
+});
+</script>
+</body>
+</html>
