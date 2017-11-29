@@ -5,29 +5,15 @@
     <title>语言包的demo</title>
     <script typet="text/javascript" src="./js/common/Tools.js"></script>
 </head>
-<h1>title:<span id="title"></span></h1>
-<h1>name:<span id="name"></span></h1>
-<textarea rows="20" id="content"></textarea>
+<h1>title:<span class="title_lang"></span></h1>
+<h1>title:<span class="title_lang"></span></h1>
+<h1>name:<span class="name_lang"></span></h1>
+<textarea rows="20" class="content_lang"></textarea>
 <body>
 
 </body>
 <script>
-    var langType = Tools.getQueryString('lang');
-    if (!langType) {
-        langType = "zh";
-    }
-    console.log("langType:"+langType);
-    var langJsPath = "./js/lang/" + langType + ".js";
-    Tools.loadJs(langJsPath, run);
-
-    function run() {
-        console.log(lang);
-        var name = lang.name;
-        var title = lang.title;
-        var content = lang.content;
-        document.getElementById('title').innerHTML = title;
-        document.getElementById('name').innerHTML = name;
-        document.getElementById('content').innerHTML = content;
-    }
+    var langJsPath = "./js/lang/";
+    Tools.runLang(langJsPath);
 </script>
 </html>

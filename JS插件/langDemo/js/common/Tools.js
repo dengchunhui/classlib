@@ -36,4 +36,32 @@ var Tools = {
         }
         return null;
     },
+    //替换语言包
+    replaceLang: function () {
+        console.log("Tools replaceLang");
+        for (var key in lang) {
+            var className = key + "_lang";
+            var classObj = document.getElementsByClassName(className);
+            var classObjLen = classObj.length;
+            for (var i = 0; i < classObjLen; i++) {
+                classObj[i].innerHTML = lang[key];
+            }
+        }
+    },
+    runLang: function (langJsPath) {
+        var langJs = Tools.getlangJs();
+        console.log("langJs:" + langJs);
+        Tools.loadJs(langJs, Tools.replaceLang);
+    },
+    getLang: function () {
+        var lang = Tools.getQueryString('lang');
+        if (!lang) {
+            lang = 'zh';
+        }
+        return lang;
+    },
+    getlangJs: function () {
+        var langJs = langJsPath + Tools.getLang() + ".js";
+        return langJs;
+    },
 };
